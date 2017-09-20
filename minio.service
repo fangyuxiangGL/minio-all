@@ -1,0 +1,20 @@
+[Unit]
+Description=Minio
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+PIDFile=/run/minio.pid
+ExecStartPre=/usr/bin/rm -f /run/minio.pid
+ExecStart=/usr/bin/minio server /mnt/minio/ -C /etc/minio/ 
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=process
+KillSignal=SIGTERM
+TimeoutStopSec=5
+PrivateTmp=true
+TasksMax=infinity
+Restart=on-failure
+StartLimitInterval=5min
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
