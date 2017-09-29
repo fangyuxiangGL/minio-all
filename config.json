@@ -5,9 +5,9 @@
 		"secretKey": "6JsNflbfl29FFnZQAQk2XjlmFPEq4vGoRHdi+QjC"
 	},
 	"multipart" : {
-		"expiry" : 3,
-		"cleanupInterval" : 3,
-		"unit" : "minute"
+		"expiry" : 12,
+		"cleanupInterval" : 12,
+		"unit" : "hour"
 	},
 	"region": "",
 	"browser": "on",
